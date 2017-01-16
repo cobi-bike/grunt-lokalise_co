@@ -35,7 +35,7 @@ module.exports = function (grunt) {
                     return grunt.fail.fatal(resp.body.response.message);
                 }
                 const output_file = path.resolve(os.tmpdir(), path.basename(resp.body.bundle.file));
-                needle.get(`${LOKALISE_URL}/${resp.body.bundle.file}`, { output: output_file }, function (err) {
+                needle.get(`${LOKALISE_URL}/${resp.body.bundle.file}`, { follow: 10, output: output_file }, function (err) {
                     if (err)
                         return grunt.fail.fatal(err);
                     extract(output_file, { dir: dir.dest }, function (err) {
