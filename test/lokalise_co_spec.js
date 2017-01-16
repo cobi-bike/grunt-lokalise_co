@@ -5,7 +5,8 @@ var grunt = require('grunt');
 
 var dataDir = 'test/data/';
 var destFile = dataDir + 'out/en.json';
-
+// TODO: npm test fails due to missing API token
+// we need to provide a way to pass more information to the test
 describe('lokalise_co', function(){
 
     describe('test target', function(){
